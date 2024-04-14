@@ -16,7 +16,7 @@ NEWLINE = '\n'
 def _write_header(bom: m.BillOfMaterials, file):
     file.write(BOM_HEADER)
     file.write(NEWLINE)
-    file.write(f'Generated: {bom.timestamp.strftime("%m/%d/%Y, %H:%M:%S")}')
+    file.write(f'Generated: {bom.timestamp.strftime("%Y/%m/%d, %H:%M:%S")}')
     file.write(NEWLINE)
     file.write(DIVIDER)
     file.write(NEWLINE)
@@ -74,7 +74,7 @@ def _write_doors(bom: m.BillOfMaterials, file):
     file.write(NEWLINE)
 
     for d in doors:
-        file.write(f'{d.count} {COUNT_SPLIT} {d.measurements()} (Carcass: {d.id}) ({d.description})')
+        file.write(f'{d.id}: {d.count} {COUNT_SPLIT} {d.measurements()} ({d.description})')
         file.write(NEWLINE)
 
     file.write(NEWLINE)
@@ -84,6 +84,9 @@ def _write_standalones(bom: m.BillOfMaterials, file):
     panels = [u for u in standalones if u.is_panel()]
     fillers = [u for u in standalones if u.is_filler()]
     others = [u for u in standalones if not u.is_panel() and not u.is_filler()]
+
+    print(standalones)
+    print(panels)
 
     _write_standalone_units(PANELS_HEADER, panels, file)
     _write_standalone_units(FILLERS_HEADER, fillers, file)

@@ -18,6 +18,10 @@ class Door:
     def id(self) -> int:
         return self.unit.id
 
+    @property
+    def type(self) -> str:
+        return 'Door'
+
     def measurements(self) -> str:
         return f'{self.height} {MEAS_DIM_SPLIT} {self.width}'
 
@@ -29,6 +33,16 @@ class Unit:
     width: Optional[int] = dc.field(default=None)  # mm
     depth: Optional[int] = dc.field(default=None)  # mm
     doors: List[Door] = dc.field(default_factory=list)
+
+    @property
+    def type(self) -> str:
+        if self.is_carcass():
+            return 'Carcass'
+        if self.is_panel():
+            return 'Panel'
+        if self.is_filler():
+            return 'Filler'
+        return 'Other'
 
     def is_carcass(self) -> bool:
         return len(self.doors) > 0

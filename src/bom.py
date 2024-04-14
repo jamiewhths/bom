@@ -2,11 +2,13 @@ import argparse
 import datetime
 from typing import List
 
-import bom_reader as reader
-import bom_writer as writer
+import bom_txt_reader as reader
+import bom_txt_writer as txt_writer
+import bom_csv_writer as csv_writer
 
 DESCRIPTION = "Transforms an ArtiCad partlist file (txt) into a bill of materials ready for an order list."
 INPUT_ARG_DESCRIPTION = 'ArtiCad partlist file (txt)'
+FORMAT_ARG_DESCRIPTION = 'Output file format ("csv", "txt")'
 VERSION = 'v1.0.0'
 
 def read_partlist_file(filepath: str) -> List[str]:
@@ -19,16 +21,22 @@ def read_partlist_file(filepath: str) -> List[str]:
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=DESCRIPTION)
     parser.add_argument('input', type=str, help=INPUT_ARG_DESCRIPTION)
+    parser.add_argument('format', type=str, default='csv', help=FORMAT_ARG_DESCRIPTION)
     return parser.parse_args()
 
-def main(input_file: str):
+def main(input_file: str, output_format: str):
     print(f'Reading file {input_file}')
     partlist = read_partlist_file(input_file)
     bill_of_materials = reader.read(partlist)
-    output_filename = f'bom_output_{datetime.datetime.now()}'
+    output_filename = f'bom_output__{datetime.datetime.now().strftime("%Y_%m_%dT%H_%M_%S")}.{output_format}'
     print(f'Writing file {output_filename}')
-    writer.write(bill_of_materials, output_filename)
+    if output_format == 'txt':
+        txt_writer.write(bill_of_materials, output_filename)
+    elif output_format == 'csv':
+        csv_writer.write(bill_of_materials, output_filename)
+    else:
+        print('!!! Unknown output format specified')
 
 if __name__ == '__main__':
     args = _parse_args()
-    main(args.input)
+    main(args.input, args.format)
