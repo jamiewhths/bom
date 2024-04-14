@@ -176,7 +176,6 @@ def _parse_group(grouped_lines: List[str]) -> m.Group:
 def read(partlist: List[str]) -> m.BillOfMaterials:
     bom = m.BillOfMaterials()
     grouped_lines = _group_lines(partlist)
-    print(grouped_lines)
     groups: List[m.Group] = [_parse_group(g) for g in grouped_lines]
     bom.groups.extend(groups)
     return bom
