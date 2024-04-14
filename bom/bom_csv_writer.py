@@ -1,9 +1,10 @@
 import csv
 import dataclasses as dc
-import operator as op
 from typing import List, Optional
 
 import bom.models as m
+
+HEADER_ROW = ['Group', 'Type', 'ID', 'Quantity', 'Description', 'Height [mm]', 'Width [mm]', 'Depth [mm]']
 
 @dc.dataclass
 class Row:
@@ -42,7 +43,8 @@ def _order_rows(rows: List[Row]) -> List[Row]:
 def write(bom: m.BillOfMaterials, filepath: str):
     rows = _build_rows(bom)
     ordered_rows = _order_rows(rows)
-    with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.writer(csvfile)
+    with open(filepath, 'w', newline='', encoding='utf-16') as csvfile:
+        writer = csv.writer(csvfile, dialect='excel-tab')
+        writer.writerow(HEADER_ROW)
         for row in ordered_rows:
             writer.writerow(row.values())
