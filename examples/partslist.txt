@@ -1,0 +1,58 @@
+Base units
+1. 108mm Tall Filler, Depth = 600mm, Height = 2300mm
+2. 1000mm Tall Open Fridge(American)Housing with Top Cupboard, Depth = 600mm, Height = 2300mm
+    1 X 496mm by 495mm Wall Unit Door LHH
+    1 X 496mm by 495mm Wall Unit Door RHH
+3. 600mm Larder with Variable Height Bottom Door, Depth = 600mm, Height = 2300mm
+    1 X 596mm by 900mm Base Unit Door RHH
+    1 X 596mm by 1240mm Wall Unit Door RHH
+4. 70mm Tall Filler, Depth = 600mm, Height = 2150mm
+5. 70mm Tall Filler, Depth = 600mm, Height = 2150mm
+6. 1000mm Larder with Variable Height Bottom Door, Depth = 600mm, Height = 2300mm
+    1 X 496mm by 900mm Base Unit Door LHH
+    1 X 496mm by 900mm Base Unit Door RHH
+    1 X 496mm by 1240mm Wall Unit Door LHH
+    1 X 496mm by 1240mm Wall Unit Door RHH
+7. 600mm Tall Oven Housing, Depth = 600mm, Height = 2300mm
+    1 X 596mm by 605mm Wall Unit Door RHH
+    1 X 596mm by 565mm Pan Drawer RHH
+8. 1200mm Right Hand Corner Base, Depth = 600mm, Height = 870mm
+    1 X 596mm by 715mm Base Unit Door RHH
+9. 18mm Tall End Support (Door Colour), Depth = 600mm, Height = 1400mm
+10. 80mm Filler, Depth = 600mm, Height = 870mm
+11. 500mm Base Unit, Depth = 600mm, Height = 870mm
+    1 X 496mm by 715mm Base Unit Door LHH
+12. 600mm Manufacturers Belfast Sink, Depth = 600mm, Height = 870mm
+    1 X 596mm by 465mm Base Unit Door LHH
+13. 600mm Integrated Dishwasher Pull Down Door, Depth = 600mm, Height = 870mm
+    1 X 596mm by 715mm Pan Drawer RHH
+14. 1000mm 3 Drawer Pack with User options, Depth = 600mm, Height = 870mm
+    1 X 996mm by 140mm Base Unit Drawer LHH
+    2 X 996mm by 285mm Pan Drawer LHH
+15. 800mm Floating Hob, Depth = 600mm
+16. 1100mm Right Hand Corner Base, Depth = 600mm, Height = 870mm
+    1 X 496mm by 715mm Base Unit Door RHH
+17. 900mm Show Back, Depth = 20mm, Height = 870mm
+18. 80mm Filler, Depth = 600mm, Height = 870mm
+19. 800mm 3 Drawer Pack with User options, Depth = 600mm, Height = 870mm
+    1 X 796mm by 140mm Base Unit Drawer LHH
+    2 X 796mm by 285mm Pan Drawer LHH
+20. 600mm Show Back, Depth = 20mm, Height = 870mm
+21. 40mm Tall Filler, Depth = 600mm, Height = 2300mm
+22. 18mm Tall End Support (Door Colour), Depth = 600mm, Height = 2300mm
+23. 764mm Wine Rack Module For Pantry Unit, Depth = 300mm, Height = 258mm
+24. 764mm Wine Rack Module For Pantry Unit, Depth = 300mm, Height = 258mm
+25. 200mm Open Base, Depth = 600mm, Height = 870mm
+    1 X 196mm by 139mm Base Unit Drawer LHH
+26. 40mm Tall Filler, Depth = 600mm, Height = 2300mm
+27. 18mm Tall End Support (Door Colour), Depth = 600mm, Height = 2300mm
+
+Wall units
+28. 800mm Wall Unit, Depth = 600mm, Height = 1430mm
+    1 X 396mm by 1425mm Wall Unit Door LHH
+    1 X 396mm by 1425mm Wall Unit Door RHH
+29. 1200mm Wall Unit Double Door, Depth = 300mm, Height = 900mm
+    1 X 596mm by 895mm Wall Unit Door LHH
+    1 X 596mm by 895mm Wall Unit Door RHH
+30. 90mm Filler, Depth = 300mm, Height = 900mm
+31. 800mm Handmade Extractor Canopy With Panels, Depth = 300mm, Height = 865mm
