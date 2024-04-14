@@ -54,33 +54,44 @@ def _extract_unit_description(line: str):
     description_str = width_decription_components[1]
     return description_str
 
-def _extract_unit_width(line: str) -> int:
+def _extract_unit_width(line: str) -> Optional[int]:
     # expected format: `{id}. {width}{unit} {text description}, Depth = {depth}{unit}, Height = {height}{unit}`
-    line_components = line.split('. ')
-    definition_str = line_components[1].strip()
-    definition_compenents = definition_str.split(', ')
-    width_decription_components = definition_compenents[0].split(f'{UNIT} ')
-    width_str = width_decription_components[0]  # WITHOUT UNIT
-    return int(width_str)
+    try:
+        line_components = line.split('. ')
+        definition_str = line_components[1].strip()
+        definition_compenents = definition_str.split(', ')
+        width_decription_components = definition_compenents[0].split(f'{UNIT} ')
+        width_str = width_decription_components[0]  # WITHOUT UNIT
+        return int(width_str)
+    except:
+        # any errors, return a None
+        return None
+
 
 def _extract_unit_depth(line: str) -> int:
     # expected format: `{id}. {width}{unit} {text description}, Depth = {depth}{unit}, Height = {height}{unit}`
-    line_components = line.split('. ')
-    definition_str = line_components[1].strip()
-    definition_compenents = definition_str.split(', ')
-    depth_str = definition_compenents[1]  # WITH UNIT
-    return int(depth_str.replace(DEPTH_STR_PREFIX, '').replace(UNIT, ''))
+    try:
+        line_components = line.split('. ')
+        definition_str = line_components[1].strip()
+        definition_compenents = definition_str.split(', ')
+        depth_str = definition_compenents[1]  # WITH UNIT
+        return int(depth_str.replace(DEPTH_STR_PREFIX, '').replace(UNIT, ''))
+    except:
+        # any errors, return a None
+        return None
 
 def _extract_unit_height(line: str) -> Optional[int]:
     # expected format: `{id}. {width}{unit} {text description}, Depth = {depth}{unit}, Height = {height}{unit}`
     # NOT ALWAYS DEFINED
-    line_components = line.split('. ')
-    definition_str = line_components[1].strip()
-    definition_compenents = definition_str.split(', ')
-    if len(definition_compenents) <= 2:
+    try:
+        line_components = line.split('. ')
+        definition_str = line_components[1].strip()
+        definition_compenents = definition_str.split(', ')
+        height_str = definition_compenents[2]  # WITH UNIT
+        return int(height_str.replace(HEIGHT_STR_PREFIX, '').replace(UNIT, ''))
+    except:
+        # any errors, return a None
         return None
-    height_str = definition_compenents[2]  # WITH UNIT
-    return int(height_str.replace(HEIGHT_STR_PREFIX, '').replace(UNIT, ''))
 
 def _parse_unit(line: str) -> m.Unit:
     # expected format: `{id}. {width}{unit} {text description}, Depth = {depth}{unit}, Height = {height}{unit}`
