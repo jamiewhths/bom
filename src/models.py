@@ -4,13 +4,17 @@ from typing import List, Optional
 
 @dc.dataclass
 class Door:
-    unit_id: int
+    unit: 'Unit'
     # id: int
     count: int
     description: str
     height: int  # mm
     width: int  # mm
     # depth: int  # mm
+
+    @property
+    def id(self) -> int:
+        return self.unit.id
 
 @dc.dataclass
 class Unit:
@@ -34,11 +38,20 @@ class BillOfMaterials:
     timestamp: dt.datetime = dc.field(init=False, default_factory=dt.datetime.now)
     groups: List[Group] = dc.field(init=False, default_factory=list)
 
-    def carcasses(self) -> List[Unit]:
-        carcasses = []
+    def carcass_units(self) -> List[Unit]:
+        units = []
         for group in self.groups:
             for unit in group.units:
                 if not unit.is_carcass():
                     continue
-                carcasses.append(unit)
-        return carcasses
+                units.append(unit)
+        return units
+    
+    def standalone_units(self) -> List[Unit]:
+        units = []
+        for group in self.groups:
+            for unit in group.units:
+                if unit.is_carcass():
+                    continue
+                units.append(unit)
+        return units

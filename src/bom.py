@@ -19,8 +19,6 @@ def main():
     bill_of_materials = reader.read(partlist)
     print(bill_of_materials)
     print('\n')
-    print(bill_of_materials.carcasses())
-    print('\n')
     print(f'Writing file {output_file}')
     writer.write(bill_of_materials, output_file)
 

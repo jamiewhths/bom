@@ -131,7 +131,7 @@ def _extract_door_width(line: str) -> int:
     width_str = measurement_description_components[0]  # WITH UNIT
     return int(width_str.replace(UNIT, ''))
 
-def _parse_door(unit_id: int, line: str) -> m.Door:
+def _parse_door(unit: m.Unit, line: str) -> m.Door:
     # expected format: `    {count} X {width}{unit} by {height}{unit} {text_description}`
     # example: `1 X 496mm by 495mm Wall Unit Door LHH`
     print(f'Parsing line for door: {line}')
@@ -139,7 +139,7 @@ def _parse_door(unit_id: int, line: str) -> m.Door:
     description = _extract_door_description(line)
     height = _extract_door_height(line)
     width = _extract_door_width(line)
-    return m.Door(unit_id=unit_id, count=count, description=description, height=height, width=width)
+    return m.Door(unit=unit, count=count, description=description, height=height, width=width)
 
 def _parse_units(grouped_lines: List[str]) -> List[m.Unit]:
     units: List[m.Unit] = []
@@ -152,7 +152,7 @@ def _parse_units(grouped_lines: List[str]) -> List[m.Unit]:
                 units.append(current_unit)
             current_unit = _parse_unit(l)
         elif _is_door(l):
-            door = _parse_door(current_unit.id, l)
+            door = _parse_door(current_unit, l)
             current_unit.doors.append(door)
         else:
             print(f'!!! UNKNOWN: {l}')
