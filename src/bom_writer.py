@@ -74,7 +74,7 @@ def _write_doors(bom: m.BillOfMaterials, file):
     file.write(NEWLINE)
 
     for d in doors:
-        file.write(f'{d.count} {COUNT_SPLIT} {d.measurements()} ({d.id}) ({d.description})')
+        file.write(f'{d.count} {COUNT_SPLIT} {d.measurements()} (Carcass: {d.id}) ({d.description})')
         file.write(NEWLINE)
 
     file.write(NEWLINE)
