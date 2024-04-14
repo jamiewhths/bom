@@ -1,6 +1,6 @@
 from typing import List
 
-import models as m
+import bom.models as m
 
 BOM_HEADER = 'Bill of Materials'
 DIVIDER = '==='

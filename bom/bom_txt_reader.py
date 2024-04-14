@@ -1,7 +1,7 @@
 import itertools as it
 from typing import List, Optional
 
-import models as m
+import bom.models as m
 
 UNIT = 'mm'
 TAB = '    '

@@ -3,7 +3,7 @@ import dataclasses as dc
 import operator as op
 from typing import List, Optional
 
-import models as m
+import bom.models as m
 
 @dc.dataclass
 class Row:

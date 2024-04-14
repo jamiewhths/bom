@@ -2,9 +2,7 @@ import argparse
 import datetime
 from typing import List
 
-import bom_txt_reader as reader
-import bom_txt_writer as txt_writer
-import bom_csv_writer as csv_writer
+from bom import bom_txt_reader as reader, bom_txt_writer as txt_writer, bom_csv_writer as csv_writer
 
 DESCRIPTION = "Transforms an ArtiCad partlist file (txt) into a bill of materials ready for an order list."
 INPUT_ARG_DESCRIPTION = 'ArtiCad partlist file (txt)'
