@@ -42,7 +42,7 @@ def _order_rows(rows: List[Row]) -> List[Row]:
 def write(bom: m.BillOfMaterials, filepath: str):
     rows = _build_rows(bom)
     ordered_rows = _order_rows(rows)
-    with open(filepath, 'w', encoding='utf-8') as csvfile:
+    with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         for row in ordered_rows:
             writer.writerow(row.values())

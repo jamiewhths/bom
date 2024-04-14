@@ -18,4 +18,4 @@ CLI Arguments:
 
 ## Generating EXE file
 
-`pyinstaller bom/bom.py -P /bom -F`
+`pyinstaller bom/bom.py -p /bom -F`
