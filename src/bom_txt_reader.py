@@ -159,9 +159,8 @@ def _parse_units(grouped_lines: List[str]) -> List[m.Unit]:
         if _is_group_label(l):
             continue
         if _is_unit(l):
-            if current_unit is not None:
-                units.append(current_unit)
             current_unit = _parse_unit(l)
+            units.append(current_unit)
         elif _is_door(l):
             door = _parse_door(current_unit, l)
             current_unit.doors.append(door)
